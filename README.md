@@ -4,6 +4,8 @@ A skill for AI coding agents to interact with the [Ray app](https://myray.app/).
 
 Ray is a desktop application for debugging that displays information sent to it via HTTP. This skill teaches AI coding agents how to send payloads to Ray's local HTTP server.
 
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/ray-skills.jpg?t=1" width="500px" />](https://spatie.be/github-ad-click/ray-skills)
+
 ## Installation
 
 ```bash
