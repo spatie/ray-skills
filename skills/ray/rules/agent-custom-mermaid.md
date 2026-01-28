@@ -23,7 +23,7 @@ Use the agent custom Mermaid payload when you want to:
 
 ```json
 {
-  "type": "agent_custom_mermaid",
+  "type": "ai_custom_mermaid",
   "content": {
     "mermaid": "graph TD\n    A[Start] --> B[End]",
     "label": "Diagram"
@@ -63,7 +63,7 @@ Use the agent custom Mermaid payload when you want to:
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_mermaid","content":{"mermaid":"graph TD\n    A[Start] --> B{Is it working?}\n    B -->|Yes| C[Great!]\n    B -->|No| D[Debug]\n    D --> B","label":"Flowchart"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_mermaid","content":{"mermaid":"graph TD\n    A[Start] --> B{Is it working?}\n    B -->|Yes| C[Great!]\n    B -->|No| D[Debug]\n    D --> B","label":"Flowchart"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Sequence Diagram
@@ -71,7 +71,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_mermaid","content":{"mermaid":"sequenceDiagram\n    participant Client\n    participant API\n    participant Database\n    Client->>API: POST /users\n    API->>Database: INSERT user\n    Database-->>API: Success\n    API-->>Client: 201 Created","label":"API Flow"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_mermaid","content":{"mermaid":"sequenceDiagram\n    participant Client\n    participant API\n    participant Database\n    Client->>API: POST /users\n    API->>Database: INSERT user\n    Database-->>API: Success\n    API-->>Client: 201 Created","label":"API Flow"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Class Diagram
@@ -79,7 +79,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_mermaid","content":{"mermaid":"classDiagram\n    class User {\n        +String name\n        +String email\n        +login()\n        +logout()\n    }\n    class Admin {\n        +manageUsers()\n    }\n    User <|-- Admin","label":"Class Diagram"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_mermaid","content":{"mermaid":"classDiagram\n    class User {\n        +String name\n        +String email\n        +login()\n        +logout()\n    }\n    class Admin {\n        +manageUsers()\n    }\n    User <|-- Admin","label":"Class Diagram"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### State Diagram
@@ -87,7 +87,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_mermaid","content":{"mermaid":"stateDiagram-v2\n    [*] --> Idle\n    Idle --> Processing: Start\n    Processing --> Success: Complete\n    Processing --> Error: Fail\n    Error --> Idle: Reset\n    Success --> [*]","label":"State Machine"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_mermaid","content":{"mermaid":"stateDiagram-v2\n    [*] --> Idle\n    Idle --> Processing: Start\n    Processing --> Success: Complete\n    Processing --> Error: Fail\n    Error --> Idle: Reset\n    Success --> [*]","label":"State Machine"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### ER Diagram
@@ -95,7 +95,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_mermaid","content":{"mermaid":"erDiagram\n    USER ||--o{ ORDER : places\n    ORDER ||--|{ LINE_ITEM : contains\n    PRODUCT ||--o{ LINE_ITEM : in","label":"ER Diagram"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_mermaid","content":{"mermaid":"erDiagram\n    USER ||--o{ ORDER : places\n    ORDER ||--|{ LINE_ITEM : contains\n    PRODUCT ||--o{ LINE_ITEM : in","label":"ER Diagram"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Pie Chart
@@ -103,7 +103,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_mermaid","content":{"mermaid":"pie title Test Results\n    \"Passed\" : 85\n    \"Failed\" : 10\n    \"Skipped\" : 5","label":"Test Results"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_mermaid","content":{"mermaid":"pie title Test Results\n    \"Passed\" : 85\n    \"Failed\" : 10\n    \"Skipped\" : 5","label":"Test Results"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 ### MCP Tool

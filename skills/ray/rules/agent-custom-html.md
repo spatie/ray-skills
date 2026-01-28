@@ -22,7 +22,7 @@ Use the agent custom HTML payload when you want to:
 
 ```json
 {
-  "type": "agent_custom_html",
+  "type": "ai_custom_html",
   "content": {
     "html": "<h1>Hello World</h1><p>Your HTML content here</p>",
     "label": "Agent Response",
@@ -61,7 +61,7 @@ You can create iterative updates to a log entry by using the `iterationOf` field
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_html","content":{"html":"<h1>Hello World</h1><p>This is <strong>styled</strong> content.</p>","label":"Agent Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<h1>Hello World</h1><p>This is <strong>styled</strong> content.</p>","label":"Agent Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Styled HTML with CSS
@@ -69,7 +69,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_html","content":{"html":"<style>.card { padding: 20px; border-radius: 8px; background: #f5f5f5; } .title { color: #333; font-size: 24px; } .content { color: #666; }</style><div class=\"card\"><h1 class=\"title\">Status Report</h1><p class=\"content\">All systems operational.</p></div>","label":"Claude Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<style>.card { padding: 20px; border-radius: 8px; background: #f5f5f5; } .title { color: #333; font-size: 24px; } .content { color: #666; }</style><div class=\"card\"><h1 class=\"title\">Status Report</h1><p class=\"content\">All systems operational.</p></div>","label":"Claude Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Table Layout
@@ -77,7 +77,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_html","content":{"html":"<style>table { width: 100%; border-collapse: collapse; } th, td { padding: 8px; border: 1px solid #ddd; text-align: left; } th { background: #f0f0f0; }</style><table><tr><th>Name</th><th>Status</th></tr><tr><td>Task 1</td><td style=\"color: green;\">Complete</td></tr><tr><td>Task 2</td><td style=\"color: orange;\">In Progress</td></tr></table>","label":"Task Status"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<style>table { width: 100%; border-collapse: collapse; } th, td { padding: 8px; border: 1px solid #ddd; text-align: left; } th { background: #f0f0f0; }</style><table><tr><th>Name</th><th>Status</th></tr><tr><td>Task 1</td><td style=\"color: green;\">Complete</td></tr><tr><td>Task 2</td><td style=\"color: orange;\">In Progress</td></tr></table>","label":"Task Status"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Iterative Updates (Carousel)
@@ -91,7 +91,7 @@ echo "Remember this UUID for iterations: $FIRST_UUID"
 
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$FIRST_UUID'","payloads":[{"type":"agent_custom_html","content":{"html":"<h1>Step 1</h1><p>Processing started...</p>","label":"Progress"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$FIRST_UUID'","payloads":[{"type":"ai_custom_html","content":{"html":"<h1>Step 1</h1><p>Processing started...</p>","label":"Progress"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 Then add subsequent iterations by referencing the original UUID in `iterationOf`:
@@ -100,7 +100,7 @@ Then add subsequent iterations by referencing the original UUID in `iterationOf`
 # Step 2: Add iteration using the SAME UUID from step 1
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"agent_custom_html","content":{"html":"<h1>Step 2</h1><p>Processing complete!</p>","label":"Progress","iterationOf":"'$FIRST_UUID'"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<h1>Step 2</h1><p>Processing complete!</p>","label":"Progress","iterationOf":"'$FIRST_UUID'"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 **Note:** The `uuid` field in the request body is for the new log entry. The `iterationOf` field must contain the UUID from the **first** iteration to link them together in a carousel.
