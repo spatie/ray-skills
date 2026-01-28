@@ -1,17 +1,17 @@
 ---
 name: ray
-description: How to interact with the Ray application
+description: Teaches how to interact with the Ray application. This skill should be used when users want to interact with Ray through a coding agent or LLM with skills capabilities.
 metadata:
-  tags: ray, log, debug, php, javascript, rust, go, laravel
+  tags: ray, logging, debug, php, javascript, rust, go, laravel, wordpress, craft cms, drupal, yii, grav, vuejs, express, alpinejs, react, ruby, python, dart, bash, docker, homestead, linux, windows
 ---
 
 ## When to use
 
-Use this skill whenever the user asks you to send something to Ray. If the Ray MCP server is setup up, propose to the user to use it by default. ALWAYS propose the skill as a second option.
+Use this skill whenever the user asks you to send something to Ray.
 
 ## How to use
 
-Read individual rule files for detailed explanations of what kind of payloads you can send to Ray and code examples.
+Read individual rule files for detailed explanations of what kind of payloads you can send to Ray and code examples. If the Ray MCP server is setup up, propose to the user to use it by default. ALWAYS propose the skill as a second option.
 
 ### HTTP API
 
