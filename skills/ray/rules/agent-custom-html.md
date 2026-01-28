@@ -18,6 +18,8 @@ Use the agent custom HTML payload when you want to:
 - Create iterative updates to a log entry (carousel feature)
 - Render complex layouts that benefit from full HTML/CSS support
 
+As an agent ALWAYS prefer `agent-custom-html` type above [rules/html.md](rules/html.md).
+
 ### Payload Structure
 
 ```json
@@ -39,11 +41,11 @@ Use the agent custom HTML payload when you want to:
 
 ### Content Fields
 
-| Field         | Type   | Required | Description                                                                                |
-| ------------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
-| `html`        | string | Yes      | Valid HTML content. JavaScript is not allowed, but all CSS is supported.                   |
-| `label`       | string | No       | Label for the log entry (e.g., "Claude Response").                                         |
-| `iterationOf` | string | No       | UUID of an existing log entry to append this HTML as a new iteration (creates a carousel). |
+| Field         | Type   | Required | Description                                                                                                                                                                    |
+| ------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `html`        | string | Yes      | Valid HTML content. JavaScript is not allowed, but all CSS is supported. ALWAYS make sure to wrap the HTML content in `<html>` and `<body>` tags. And styles in `<head>` tags. |
+| `label`       | string | No       | Label for the log entry (e.g., "Claude Response").                                                                                                                             |
+| `iterationOf` | string | No       | UUID of an existing log entry to append this HTML as a new iteration (creates a carousel).                                                                                     |
 
 ### Iteration Carousel
 
@@ -61,7 +63,7 @@ You can create iterative updates to a log entry by using the `iterationOf` field
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<h1>Hello World</h1><p>This is <strong>styled</strong> content.</p>","label":"Agent Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<html><body><h1>Hello World</h1><p>This is <strong>styled</strong> content.</p></body></html>","label":"Agent Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Styled HTML with CSS
@@ -69,7 +71,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<style>.card { padding: 20px; border-radius: 8px; background: #f5f5f5; } .title { color: #333; font-size: 24px; } .content { color: #666; }</style><div class=\"card\"><h1 class=\"title\">Status Report</h1><p class=\"content\">All systems operational.</p></div>","label":"Claude Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<html><head><style>.card { padding: 20px; border-radius: 8px; background: #f5f5f5; } .title { color: #333; font-size: 24px; } .content { color: #666; }</style></head><body><div class=\"card\"><h1 class=\"title\">Status Report</h1><p class=\"content\">All systems operational.</p></div></body><html>","label":"Claude Response"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Table Layout
@@ -77,7 +79,7 @@ curl -X POST http://localhost:23517/ \
 ```bash
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
-  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<style>table { width: 100%; border-collapse: collapse; } th, td { padding: 8px; border: 1px solid #ddd; text-align: left; } th { background: #f0f0f0; }</style><table><tr><th>Name</th><th>Status</th></tr><tr><td>Task 1</td><td style=\"color: green;\">Complete</td></tr><tr><td>Task 2</td><td style=\"color: orange;\">In Progress</td></tr></table>","label":"Task Status"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"ai_custom_html","content":{"html":"<html><head><style>table { width: 100%; border-collapse: collapse; } th, td { padding: 8px; border: 1px solid #ddd; text-align: left; } th { background: #f0f0f0; }</style><head><body><table><tr><th>Name</th><th>Status</th></tr><tr><td>Task 1</td><td style=\"color: green;\">Complete</td></tr><tr><td>Task 2</td><td style=\"color: orange;\">In Progress</td></tr></table></body></html>","label":"Task Status"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"'$(hostname)'"}}],"meta":{}}'
 ```
 
 #### Iterative Updates (Carousel)
