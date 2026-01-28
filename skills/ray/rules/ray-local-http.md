@@ -17,6 +17,8 @@ Ray runs a local HTTP server that accepts payloads for display in the Ray deskto
 POST http://localhost:23517/
 ```
 
+IMPORTANT: If the endpoint is not working, the user might have changed their default port in the settings of Ray. In that case, ask them to provide the correct port.
+
 ### Headers
 
 ```
