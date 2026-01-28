@@ -89,6 +89,15 @@ Metadata about the integration library. Can contain language version and Ray pac
 - `custom` with empty label - Decoded JSON (see [decoded-json.md](decoded-json.md))
 - `custom` with filename label - File contents (see [file-contents.md](file-contents.md))
 
+### Supported Action Types
+
+Actions control Ray's behavior rather than displaying data. They all use empty content arrays `[]`.
+
+- `confetti` - Trigger confetti animation (see [action-confetti.md](action-confetti.md))
+- `hide_app` - Hide Ray window (see [action-hide-app.md](action-hide-app.md))
+- `show_app` - Show Ray window (see [action-show-app.md](action-show-app.md))
+- `clear_all` - Clear all logs (see [action-clear-all.md](action-clear-all.md))
+
 ### Basic curl Template
 
 ```bash

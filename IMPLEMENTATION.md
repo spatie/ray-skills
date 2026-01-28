@@ -241,6 +241,58 @@ For displaying the contents of a file. The label shows the filename.
 - Label is the basename of the file (e.g., `config.json` for `/path/to/config.json`)
 - If file not found, content is `"File not found: '/path/to/file'"` with label `"File"`
 
+## Action Payloads
+
+Actions are payloads that control Ray's behavior rather than displaying data. They all use empty content arrays.
+
+### 11. ConfettiPayload (type: `confetti`)
+
+Triggers a confetti animation in Ray. Use to celebrate completed tasks or successful operations.
+
+```json
+{
+  "type": "confetti",
+  "content": [],
+  "origin": {...}
+}
+```
+
+### 12. HideAppPayload (type: `hide_app`)
+
+Hides the Ray application window.
+
+```json
+{
+  "type": "hide_app",
+  "content": [],
+  "origin": {...}
+}
+```
+
+### 13. ShowAppPayload (type: `show_app`)
+
+Shows/brings the Ray application window to the foreground.
+
+```json
+{
+  "type": "show_app",
+  "content": [],
+  "origin": {...}
+}
+```
+
+### 14. ClearAllPayload (type: `clear_all`)
+
+Clears all logs from the Ray window.
+
+```json
+{
+  "type": "clear_all",
+  "content": [],
+  "origin": {...}
+}
+```
+
 ## Files to Create/Update
 
 ### 0. Create `IMPLEMENTATION.md` in ray-skills root
@@ -426,6 +478,38 @@ curl -X POST http://localhost:23517/ \
 curl -X POST http://localhost:23517/ \
   -H "Content-Type: application/json" \
   -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"custom","content":{"content":"line 1<br />line 2<br />line 3","label":"example.txt"},"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"my-computer"}}],"meta":{}}'
+```
+
+**Confetti example**:
+
+```bash
+curl -X POST http://localhost:23517/ \
+  -H "Content-Type: application/json" \
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"confetti","content":[],"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"my-computer"}}],"meta":{}}'
+```
+
+**HideApp example**:
+
+```bash
+curl -X POST http://localhost:23517/ \
+  -H "Content-Type: application/json" \
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"hide_app","content":[],"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"my-computer"}}],"meta":{}}'
+```
+
+**ShowApp example**:
+
+```bash
+curl -X POST http://localhost:23517/ \
+  -H "Content-Type: application/json" \
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"show_app","content":[],"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"my-computer"}}],"meta":{}}'
+```
+
+**ClearAll example**:
+
+```bash
+curl -X POST http://localhost:23517/ \
+  -H "Content-Type: application/json" \
+  -d '{"uuid":"'$(uuidgen)'","payloads":[{"type":"clear_all","content":[],"origin":{"function_name":"code-agent","file":"code-agent","line_number":1,"hostname":"my-computer"}}],"meta":{}}'
 ```
 
 ## Verification

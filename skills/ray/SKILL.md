@@ -29,3 +29,10 @@ Read individual rule files for detailed explanations of what kind of payloads yo
 - [rules/custom.md](rules/custom.md) - Custom payload for arbitrary content with custom label
 - [rules/decoded-json.md](rules/decoded-json.md) - Decoded JSON payload for parsed JSON objects
 - [rules/file-contents.md](rules/file-contents.md) - File contents payload for displaying file content
+
+### Action Types
+
+- [rules/action-confetti.md](rules/action-confetti.md) - Confetti action to celebrate
+- [rules/action-hide-app.md](rules/action-hide-app.md) - Hide Ray window
+- [rules/action-show-app.md](rules/action-show-app.md) - Show Ray window
+- [rules/action-clear-all.md](rules/action-clear-all.md) - Clear all logs
