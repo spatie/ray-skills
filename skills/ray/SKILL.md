@@ -36,3 +36,11 @@ Read individual rule files for detailed explanations of what kind of payloads yo
 - [rules/action-hide-app.md](rules/action-hide-app.md) - Hide Ray window
 - [rules/action-show-app.md](rules/action-show-app.md) - Show Ray window
 - [rules/action-clear-all.md](rules/action-clear-all.md) - Clear all logs
+
+### Agent Payload Types
+
+These payload types are designed for LLM/agent output with rich rendering support.
+
+- [rules/agent-custom-html.md](rules/agent-custom-html.md) - Rich HTML with full CSS support
+- [rules/agent-custom-markdown.md](rules/agent-custom-markdown.md) - Rendered Markdown content
+- [rules/agent-custom-mermaid.md](rules/agent-custom-mermaid.md) - Mermaid diagrams (flowcharts, sequence diagrams, etc.)
