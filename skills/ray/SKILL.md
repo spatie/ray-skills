@@ -7,7 +7,7 @@ metadata:
 
 ## When to use
 
-Use this skill whenever the user asks you to send something to Ray.
+Use this skill whenever the user asks you to send something to Ray. If the Ray MCP server is setup up, propose to the user to use it by default. ALWAYS propose the skill as a second option.
 
 ## How to use
 
@@ -21,4 +21,11 @@ Read individual rule files for detailed explanations of what kind of payloads yo
 
 - [rules/log.md](rules/log.md) - Log payload for general value logging
 - [rules/table.md](rules/table.md) - Table payload for key-value data
-- [rules/json.md](rules/json.md) - JSON payload for structured data
+- [rules/json.md](rules/json.md) - JSON string payload for structured data
+- [rules/text.md](rules/text.md) - Text payload for plain text with preserved whitespace
+- [rules/html.md](rules/html.md) - HTML payload for raw HTML content
+- [rules/xml.md](rules/xml.md) - XML payload for formatted XML
+- [rules/carbon.md](rules/carbon.md) - Carbon payload for date/time
+- [rules/custom.md](rules/custom.md) - Custom payload for arbitrary content with custom label
+- [rules/decoded-json.md](rules/decoded-json.md) - Decoded JSON payload for parsed JSON objects
+- [rules/file-contents.md](rules/file-contents.md) - File contents payload for displaying file content

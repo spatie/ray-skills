@@ -81,6 +81,13 @@ Metadata about the integration library. Can contain language version and Ray pac
 - `log` - General value logging (see [log.md](log.md))
 - `table` - Key-value table display (see [table.md](table.md))
 - `json_string` - JSON structure display (see [json.md](json.md))
+- `custom` with label `"Text"` - Plain text with preserved whitespace (see [text.md](text.md))
+- `custom` with label `"HTML"` - Raw HTML content (see [html.md](html.md))
+- `custom` with label `"XML"` - Formatted XML content (see [xml.md](xml.md))
+- `carbon` - Date/time display (see [carbon.md](carbon.md))
+- `custom` with custom label - Arbitrary content (see [custom.md](custom.md))
+- `custom` with empty label - Decoded JSON (see [decoded-json.md](decoded-json.md))
+- `custom` with filename label - File contents (see [file-contents.md](file-contents.md))
 
 ### Basic curl Template
 
