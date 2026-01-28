@@ -34,6 +34,7 @@ skills/ray/
 ## Documentation
 
 - [Ray Payload Documentation](https://myray.app/docs/developing-ray-libraries/payload) - Official Ray payload structure documentation
+- [Spatie Ray Ecosystem](skills/ray/rules/spatie-ray-ecosystem.md) - Overview of all Spatie Ray packages for different languages and frameworks
 
 ## License
 

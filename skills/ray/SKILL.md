@@ -17,6 +17,10 @@ Read individual rule files for detailed explanations of what kind of payloads yo
 
 - [rules/ray-local-http.md](rules/ray-local-http.md) - How the Ray local HTTP server works
 
+### Ray Ecosystem
+
+- [rules/spatie-ray-ecosystem.md](rules/spatie-ray-ecosystem.md) - Overview of other Spatie Ray packages and integrations for different languages and frameworks
+
 ### Payload Types
 
 - [rules/log.md](rules/log.md) - Log payload for general value logging
