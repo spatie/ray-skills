@@ -34,3 +34,7 @@ skills/ray/
 ## Documentation
 
 - [Ray Payload Documentation](https://myray.app/docs/developing-ray-libraries/payload) - Official Ray payload structure documentation
+
+## License
+
+The MIT License (MIT). Please see [License File](./LICENSE.md) for more information.
