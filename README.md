@@ -6,7 +6,7 @@ Ray is a desktop application for debugging that displays information sent to it 
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/ray-skills.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/ray-skills)
+[<img src="https://spatie.be/github-ad-image/ray-skills.jpg" width="419px" />](https://spatie.be/github-ad-click/ray-skills)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
